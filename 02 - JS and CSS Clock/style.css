@@ -53,3 +53,13 @@ img {
   z-index: -1;
   height: 30vh;
 }
+
+@media (max-width: 480px) {
+  img:nth-child(2) {
+    display: none;
+  }
+
+  img:nth-child(1) {
+    height: 28vh;
+  }
+}
