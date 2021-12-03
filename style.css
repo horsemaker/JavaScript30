@@ -34,3 +34,9 @@ h1 {
 img {
   height: 40vh;
 }
+
+@media (max-width:480px) {
+  img {
+    height: 30vh;
+  }
+}
