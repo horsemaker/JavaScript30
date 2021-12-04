@@ -12,8 +12,16 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3vh 0;
+  text-align: center;
+  margin: 0 2vw;
 }
 
 p {
   font-size: 20px;
+}
+
+@media (max-width: 480px) {
+  img {
+    width: 90vw;
+  }
 }
