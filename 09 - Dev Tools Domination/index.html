@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Console Tricks!</title>
+		<style>
+			body {
+				background-color: wheat;
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				height: 100vh;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<em onclick="changeStyle()">×BREAK×DOWN×</em>
+
+		<script>
+			const dogs = [
+				{ name: 'Snickers', age: 2 },
+				{ name: 'Hugo', age: 8 },
+			]
+
+			function changeStyle() {
+				console.log('onclick function "chanegStyle" called')
+				const em = document.querySelector('em')
+				em.style.fontSize = 'x-large'
+				em.style.fontWeight = '500'
+				em.style.color = 'indianred'
+			}
+
+			// Regular
+			console.groupCollapsed('Regular')
+			console.log('Hello!')
+			console.groupEnd('Regular')
+
+			// Interpolated
+			const lit = '🔥'
+			console.groupCollapsed('Interpolated')
+			console.group('Using %s')
+			console.log('Hello, I am a %s string!', lit)
+			console.groupEnd('Using %s')
+			console.group('Using template literals')
+			console.log(`Hello, I am a ${lit} string!`)
+			console.groupEnd('Using template literals')
+			console.groupEnd('Interpolated')
+
+			// Styled
+			console.groupCollapsed('Styled')
+			console.log(
+				'%c I am some great text! ',
+				'font-size: 30px; background: darkslateblue; text-shadow: 10px 10px 0 indianred'
+			)
+			console.groupEnd('Styled')
+
+			// Warning!
+			console.groupCollapsed('Warning')
+			console.warn('OH NOOOOOOO!!!!!!')
+			console.groupEnd('Warning')
+
+			// Error!
+			console.groupCollapsed('Error')
+			console.error('Shhhhiiiiiiittttttt!')
+			console.groupEnd('Error')
+
+			// Info
+			console.groupCollapsed('Info')
+			console.log(
+				'console.info() works similar to console.log() in Chrome'
+			)
+			console.info('🐊 Crocodiles eat 3-4 people per year')
+			console.groupEnd('Info')
+
+			// Testing
+			const em = document.querySelector('em')
+			console.groupCollapsed('Testing')
+			console.assert(em.classList.contains('ouch'), 'That is wrong!')
+			console.groupEnd('Testing')
+
+			// Grouping Together
+			console.groupCollapsed('Grouping Together')
+			dogs.forEach((dog) => {
+				console.groupCollapsed(`${dog.name}`)
+				console.log(`This is ${dog.name}`)
+				console.log(`${dog.name} is ${dog.age} years old`)
+				console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+				console.groupEnd(`${dog.name}`)
+			})
+			console.groupEnd('Grouping Together')
+
+			// counting
+			console.groupCollapsed('Counting')
+			console.count('🍪')
+			console.count('🍪')
+			console.count('🍕')
+			console.count('🍕')
+			console.count('🍪')
+			console.count('🍕')
+			console.count('🍪')
+			console.count('🍕')
+			console.count('🍕')
+			console.count('🍕')
+			console.count('🍕')
+			console.count('🍕')
+			console.groupEnd('Counting')
+
+			// Timing
+
+			console.time('fetching data')
+			fetch('https://api.github.com/users/horsemaker')
+				.then((data) => data.json())
+				.then((data) => {
+					console.timeEnd('fetching data')
+					console.log(data)
+				})
+
+			// Table
+			console.groupCollapsed('Table')
+			console.table(dogs)
+			console.groupEnd('Table')
+
+			//   clearing
+			//   console.clear()
+		</script>
+	</body>
+</html>
