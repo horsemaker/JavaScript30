@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Key Detection</title>
+		<script
+			type="text/javascript"
+			src="https://www.cornify.com/js/cornify.js"
+		></script>
+	</head>
+	<body>
+		<em>Check Console 👀</em>
+		<script>
+			console.log('Guess the KONAMI code to get CORNIFIED! 🦄')
+			const pressed = []
+			const secretCode = 'horsemaker'
+
+			window.addEventListener('keyup', (e) => {
+				pressed.push(e.key)
+				pressed.splice(
+					-secretCode.length - 1,
+					pressed.length - secretCode.length
+				)
+				if (pressed.join('').includes(secretCode)) {
+					console.log('DING DING!')
+					cornify_add()
+				}
+			})
+		</script>
+	</body>
+</html>
